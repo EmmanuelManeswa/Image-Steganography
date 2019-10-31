@@ -1,0 +1,4 @@
+Project Title: Image/Picture Steganography
+Student Number: 154409
+Student Name: Emmanuel Maneswa
+Advisor Name: Cem Kalyoncu
