@@ -1,6 +1,4 @@
-# __README__ #
-
-## __Project Title__ ##
+# __Project Title__ #
 
 Image/Picture Steganography
 
