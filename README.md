@@ -1,6 +1,6 @@
 # README #
 
-### Project Title ###
+## Project Title ##
 
 Image/Picture Steganography
 
