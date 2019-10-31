@@ -1,10 +1,10 @@
-# README #
+# __README__ #
 
-## Project Title ##
+## __Project Title__ ##
 
 Image/Picture Steganography
 
-### Student Details ###
+### __Student Details__ ###
 
 Number: 154409
 
@@ -12,6 +12,6 @@ Name: Emmanuel Maneswa
 
 Email: <emmanuelmaneswa@gmail.com>
 
-### Project Advisor ###
+### __Project Advisor__ ###
 
 Asst. Prof. Dr. Cem Kalyoncu
