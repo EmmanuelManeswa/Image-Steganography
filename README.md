@@ -16,6 +16,7 @@ Asst. Prof. Dr. Cem Kalyoncu
 
 ## __Directory Structure__ ##
 
+```
 .
 ├── build
 ├── CMakeLists.txt
@@ -31,3 +32,4 @@ Asst. Prof. Dr. Cem Kalyoncu
 ├── src
 ├── test
 └── web
+```
