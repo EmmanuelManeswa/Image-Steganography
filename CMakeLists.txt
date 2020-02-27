@@ -1,0 +1,7 @@
+cmake_minumum_required(VERSION 3.16.4)
+project(image-steganography)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+include_directories(include)
+file(GLOB SOURCES "src/*.cpp")
+add_executable(execute ${SOURCES})
