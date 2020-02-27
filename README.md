@@ -16,8 +16,7 @@ Asst. Prof. Dr. Cem Kalyoncu
 
 ## __Directory Structure__ ##
 
-```
-.
+```.
 ├── build
 ├── CMakeLists.txt
 ├── docs
