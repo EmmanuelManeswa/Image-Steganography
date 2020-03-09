@@ -17,6 +17,7 @@ Asst. Prof. Dr. Cem Kalyoncu
 ## __Directory Structure__ ##
 
 ```.
+.
 ├── build
 ├── CMakeLists.txt
 ├── docs
@@ -28,7 +29,8 @@ Asst. Prof. Dr. Cem Kalyoncu
 │   └── project 2
 ├── include
 ├── README.md
+├── scrum board
 ├── src
-├── test
+├── tests
 └── web
 ```
