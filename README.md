@@ -1,6 +1,4 @@
-# __Project Title__ #
-
-Image/Picture Steganography
+# __Image/Picture Steganography__ #
 
 ## __Student Details__ ##
 
