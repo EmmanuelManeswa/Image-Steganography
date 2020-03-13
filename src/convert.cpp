@@ -1,7 +1,7 @@
 /**
  * @file convert.cpp
  * @author Emmanuel Maneswa (emmanuelmaneswa@gmail.com)
- * @brief 
+ * @brief This source file contains the functions implementation of the functions defined in "../include/convert.hpp" header file.
  * @version 0.1
  * @date 2020-03-12
  * 
@@ -9,6 +9,8 @@
  * 
  */
 
+#include <cctype>
+#include <cstdint>
 #include "../include/convert.hpp"
 
 std::string TextToHexadecimal(std::string text_string){
@@ -33,4 +35,36 @@ std::string HexadecimalToText(std::string hex_string){
         text_string[i] |= (hex_char > '9' ? (hex_char + 9) & 0xF : hex_char & 0xF);
     }
     return text_string;
+}
+
+std::string HexadecimalToBinary(std::string hex_string){
+    std::string bin_string;
+    uint8_t int_val;
+    for(auto hex_char: hex_string){
+        if(hex_char >= '0' && hex_char <= '9')
+            int_val = hex_char - '0';
+        else
+            int_val = 10 + hex_char - 'A';
+        for (int8_t i = 3; i >= 0; i--){
+            bin_string.push_back((int_val & (1 << i)) ? '1' : '0');
+        }
+    }
+    return bin_string;
+}
+
+std::string BinaryToHexadecimal(std::string bin_string){
+    std::string hex_string;
+    for(size_t i = 0; i < bin_string.size(); i+=4){
+        int8_t int_val = 0;
+        for(size_t j = i; j < i+4; j++){
+            int_val <<= 1;
+            if(bin_string[j] == '1')
+                int_val |= 1;
+        }
+        if(int_val <= 9)
+            hex_string.push_back('0' + int_val);
+        else
+            hex_string.push_back('A' + int_val - 10);
+    }
+    return hex_string;
 }
