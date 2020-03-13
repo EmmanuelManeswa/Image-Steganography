@@ -3,7 +3,7 @@
  * @author Emmanuel Maneswa (emmanuelmaneswa@gmail.com)
  * @brief This source file contains the functions implementation of the functions defined in "../include/convert.hpp" header file.
  * @version 0.1
- * @date 2020-03-12
+ * @date 2020-03-13
  * 
  * @copyright Copyright (c) 2020
  * 
