@@ -30,7 +30,8 @@ Asst. Prof. Dr. Cem Kalyoncu
 ├── README.md
 ├── README.pdf
 ├── scrum-board
-│   └── 1. 2020-03-11_20:23.jpeg
+│   ├── 1. 2020-03-11_20:23.jpeg
+│   └── 2. 2020-03-30_07:31.jpg
 ├── src
 │   └── convert.cpp
 ├── tests
