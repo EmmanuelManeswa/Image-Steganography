@@ -26,14 +26,16 @@ Asst. Prof. Dr. Cem Kalyoncu
 │   │   └── proj1_poster.pptx
 │   └── project 2
 ├── include
-│   └── convert.hpp
+│   ├── convert.hpp
+│   └── steganography.hpp
 ├── README.md
 ├── README.pdf
 ├── scrum-board
 │   ├── 1. 2020-03-11_20:23.jpeg
 │   └── 2. 2020-03-30_07:31.jpg
 ├── src
-│   └── convert.cpp
+│   ├── convert.cpp
+│   └── steganography.cpp
 ├── tests
 └── web
 ```
