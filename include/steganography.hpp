@@ -22,7 +22,7 @@
  */
 class Steganography{
 
-        std::string message_, key_;
+        std::string message_, key_, image_path;
         cv::Mat image_;
 
     public:
@@ -40,7 +40,7 @@ class Steganography{
          * @param key 
          * @param img 
          */
-        Steganography(std::string msg, std::string key, std::string img);
+        Steganography(std::string msg, std::string key, std::string img_path);
 
         /**
          * @brief Construct a new Steganography object.
