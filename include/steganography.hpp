@@ -22,7 +22,7 @@
  */
 class Steganography{
 
-        std::string message_, key_, image_path;
+        std::string message_, key_, image_path_;
         cv::Mat image_;
 
     public:
