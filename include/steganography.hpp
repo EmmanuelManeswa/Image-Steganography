@@ -1,7 +1,8 @@
 /**
  * @file steganography.hpp
  * @author Emmanuel Maneswa (emmanuelmaneswa@gmail.com)
- * @brief 
+ * @brief This header file contains the class definition for image steganography.
+ *        Class implementation path: "../src/steganography.cpp".
  * @version 0.1
  * @date 2020-03-30
  * 
@@ -9,3 +10,70 @@
  * 
  */
 
+#ifndef STEGANOGRAPHY_HPP
+#define STEGANOGRAPHY_HPP
+
+#include <string>
+#include <opencv2/imgcodecs.hpp>
+
+/**
+ * @brief Steganography class for embedding and extraction of secret message into and from image.
+ * 
+ */
+class Steganography{
+
+        std::string message_, key_;
+        cv::Mat image_;
+
+    public:
+
+        /**
+         * @brief Deleted the default constructor.
+         * 
+         */
+        Steganography() = delete;
+
+        /**
+         * @brief Construct a new Steganography object.
+         * 
+         * @param msg 
+         * @param key 
+         * @param img 
+         */
+        Steganography(std::string msg, std::string key, std::string img);
+
+        /**
+         * @brief Construct a new Steganography object.
+         * 
+         * @param key 
+         * @param img 
+         */
+        Steganography(std::string key, std::string img);
+
+        /**
+         * @brief Construct a new Steganography object.
+         * 
+         */
+        Steganography(const Steganography&) = delete;
+
+        /**
+         * @brief Embeds message into cover image.
+         * 
+         */
+        void Encode();
+
+        /**
+         * @brief Extracts message from stego image.
+         * 
+         * @return std::string 
+         */
+        std::string Decode();
+        
+        /**
+         * @brief Destroy the Steganography object.
+         * 
+         */
+        ~Steganography() = default;
+};
+
+#endif
