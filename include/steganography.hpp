@@ -48,7 +48,7 @@ class Steganography{
          * @param key 
          * @param img 
          */
-        Steganography(std::string key, std::string img);
+        Steganography(std::string key, std::string img_path);
 
         /**
          * @brief Construct a new Steganography object.
