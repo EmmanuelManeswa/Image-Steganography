@@ -2,23 +2,29 @@
 
 ## __Student Details__ ##
 
-Number: 154409
+- Number: 154409
 
-Name: Emmanuel Maneswa
+- Name: Emmanuel Maneswa
 
-Email: <emmanuelmaneswa@gmail.com>
+-  Email: <emmanuelmaneswa@gmail.com>
 
 ## __Project Advisor__ ##
 
-Asst. Prof. Dr. Cem Kalyoncu
+- Asst. Prof. Dr. Cem Kalyoncu
 
-## __Requirements__ ##
+## __Softwares/Tools Used__ ##
 
-CMake: [https://cmake.org/](https://cmake.org/)
+- CMake: [https://cmake.org/](https://cmake.org/)
+- OpenCV: [https://opencv.org/](https://opencv.org/)
+- Visual Studio Code: [https://code.visualstudio.com/](https://code.visualstudio.com/)
+- Git: [https://git-scm.com/](https://git-scm.com/)
+- Bitbucket: [https://bitbucket.org/](https://bitbucket.org/)
+- Github: [https://github.com/](https://github.com/)
+- Trello: [https://trello.com/](https://trello.com/)
 
 ## __Third-Party Libraries__ ##
 
-Sha256: [http://www.zedwood.com/article/cpp-sha256-function](http://www.zedwood.com/article/cpp-sha256-function)
+- Sha256: [http://www.zedwood.com/article/cpp-sha256-function](http://www.zedwood.com/article/cpp-sha256-function)
 
 ## __Directory Structure__ ##
 
