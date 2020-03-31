@@ -12,6 +12,14 @@ Email: <emmanuelmaneswa@gmail.com>
 
 Asst. Prof. Dr. Cem Kalyoncu
 
+## __Requirements__ ##
+
+CMake: [https://cmake.org/](https://cmake.org/)
+
+## __Third-Party Libraries__ ##
+
+Sha256: [http://www.zedwood.com/article/cpp-sha256-function](http://www.zedwood.com/article/cpp-sha256-function)
+
 ## __Directory Structure__ ##
 
 ```.
@@ -37,5 +45,13 @@ Asst. Prof. Dr. Cem Kalyoncu
 │   ├── convert.cpp
 │   └── steganography.cpp
 ├── tests
+├── third-party
+│   ├── README.md
+│   └── sha256
+│       ├── include
+│       │   └── sha256.hpp
+│       ├── LICENCE.txt
+│       └── src
+│           └── sha256.cpp
 └── web
 ```
