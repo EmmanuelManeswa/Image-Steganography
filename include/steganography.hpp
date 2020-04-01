@@ -23,7 +23,7 @@
 class Steganography{
 
         std::string secret_info_, key_, img_path_;
-        cv::Mat image_;
+        cv::Mat img_;
 
     public:
 
@@ -55,6 +55,12 @@ class Steganography{
          * 
          */
         Steganography(const Steganography&) = delete;
+
+        /**
+         * @brief Loads image from the path given (img_path_).
+         * 
+         */
+        void LoadImage();
 
         /**
          * @brief Embeds the secret information into cover image and returns the path/name of stego image.
