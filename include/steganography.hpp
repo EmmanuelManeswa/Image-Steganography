@@ -1,11 +1,10 @@
 /**
  * @file steganography.hpp
  * @author Emmanuel Maneswa (emmanuelmaneswa@gmail.com)
- * @brief This header file contains the function definitions for encoding secret message into cover image and decoding secret
- *        message from stego image.
- *        Functions implementation path: "../src/steganography.cpp".
+ * @brief This header file contains the class definition for image steganography.
+ *        Class implementation path: "../src/steganography.cpp".
  * @version 0.1
- * @date 2020-03-30
+ * @date 2020-04-01
  * 
  * @copyright Copyright (c) 2020
  * 
@@ -15,24 +14,67 @@
 #define STEGANOGRAPHY_HPP
 
 #include <string>
+#include <opencv2/imgcodecs.hpp>
 
 /**
- * @brief This function embeds the secret message into the cover image.
+ * @brief Steganography class for embedding and extraction of secret message into and from image.
  * 
- * @param message 
- * @param key 
- * @param cover_img_path 
- * @return std::string 
  */
-std::string Encode(std::string message, std::string key, std::string cover_img_path);
+class Steganography{
 
-/**
- * @brief This function extracts the secret message from the stego image.
- * 
- * @param key 
- * @param stego_img_path 
- * @return std::string 
- */
-std::string Decode(std::string key, std::string stego_img_path);
+        std::string secret_info_, key_, img_path_;
+        cv::Mat image_;
+
+    public:
+
+        /**
+         * @brief Deleted the default constructor.
+         * 
+         */
+        Steganography() = delete;
+
+        /**
+         * @brief Construct a new Steganography object.
+         * 
+         * @param msg 
+         * @param key 
+         * @param img 
+         */
+        Steganography(std::string msg, std::string key, std::string img_path);
+
+        /**
+         * @brief Construct a new Steganography object.
+         * 
+         * @param key 
+         * @param img 
+         */
+        Steganography(std::string key, std::string img_path);
+
+        /**
+         * @brief Construct a new Steganography object.
+         * 
+         */
+        Steganography(const Steganography&) = delete;
+
+        /**
+         * @brief Embeds the secret information into cover image and returns the path/name of stego image.
+         * 
+         * @return std::string 
+         */
+        std::string Embedding();
+
+        /**
+         * @brief Extracts the secret information from stego image and returns the secret information.
+         * 
+         * @return std::string 
+         */
+        std::string Extraction();
+        
+        /**
+         * @brief Destroy the Steganography object.
+         * 
+         */
+        ~Steganography() = default;
+};
 
 #endif
