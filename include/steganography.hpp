@@ -1,7 +1,7 @@
 /**
  * @file steganography.hpp
  * @author Emmanuel Maneswa (emmanuelmaneswa@gmail.com)
- * @brief This header file contains the class definition for image steganography.
+ * @brief This header file contains the Steganography class definition.
  *        Class implementation path: "../src/steganography.cpp".
  * @version 0.1
  * @date 2020-04-07
@@ -96,6 +96,8 @@ class Steganography{
          */
         cv::Vec3b EmbedInBlue(cv::Vec3b pixel, size_t index);
 
+        void ExtractFromBlue(cv::Vec3b pixel);
+
         /**
          * @brief Embeds secret information bit in the LSB of green.
          * 
@@ -105,6 +107,8 @@ class Steganography{
          */
         cv::Vec3b EmbedInGreen(cv::Vec3b pixel, size_t index);
 
+        void ExtractFromGreen(cv::Vec3b pixel);
+
         /**
          * @brief Embeds secret information bit in the LSB of red.
          * 
@@ -113,6 +117,8 @@ class Steganography{
          * @return cv::Vec3b 
          */
         cv::Vec3b EmbedInRed(cv::Vec3b pixel, size_t index);
+
+        void ExtractFromRed(cv::Vec3b pixel);
         
         /**
          * @brief Embeds the length of the secret information bits into the cover image.
@@ -122,16 +128,37 @@ class Steganography{
         void EmbedLength(std::string number_of_bits_hidden);
 
         /**
+         * @brief Extracts the length of the secret information bits from the cover image.
+         * 
+         * @return size_t 
+         */
+        size_t ExtractLength();
+
+        /**
          * @brief Embeds the hashed key bits into the cover image.
          * 
          */
         void EmbedKeyHash();
 
         /**
+         * @brief Extracts the hashed key bits from the cover image.
+         * 
+         * @return std::string 
+         */
+        std::string ExtractKeyHash();
+
+        /**
          * @brief Embeds the secret key bits into the cover image.
          * 
          */
         void EmbedSecretInfo();
+
+        /**
+         * @brief Extracts the secret information bits from the cover image.
+         * 
+         * @param secret_info_length 
+         */
+        void ExtractSecretInfo(size_t secret_info_length);
 
     public:
 
