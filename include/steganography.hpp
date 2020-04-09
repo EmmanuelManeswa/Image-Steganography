@@ -34,13 +34,13 @@ class Steganography{
         /**
          * @brief Saves the stego image.
          * 
-         * @param stego_image_path 
          */
         void SaveStegoImage();
 
         /**
          * @brief Calculates the number of secret information bits and returns it as bits.
          * 
+         * @param size 
          * @return std::string 
          */
         std::string HiddenBits(size_t size);
@@ -48,6 +48,7 @@ class Steganography{
         /**
          * @brief checks if the secret infomation, hashed key and the legth of hidden info can be embedded into the cover image.
          * 
+         * @param number_of_bits_hidden 
          * @return true 
          * @return false 
          */
@@ -83,7 +84,7 @@ class Steganography{
          * @brief Exclusive Or of of two bits of different data types.
          * 
          * @param secret_bit 
-         * @param green_lsb 
+         * @param lsb 
          * @return true 
          * @return false 
          */
@@ -104,6 +105,11 @@ class Steganography{
          */
         cv::Vec3b EmbedInBlue(cv::Vec3b pixel, size_t index);
 
+        /**
+         * @brief Extract secret information bit from the LSB of blue.
+         * 
+         * @param pixel 
+         */
         void ExtractFromBlue(cv::Vec3b pixel);
 
         /**
@@ -115,6 +121,11 @@ class Steganography{
          */
         cv::Vec3b EmbedInGreen(cv::Vec3b pixel, size_t index);
 
+        /**
+         * @brief Extract secret information bit from the LSB of green.
+         * 
+         * @param pixel 
+         */
         void ExtractFromGreen(cv::Vec3b pixel);
 
         /**
@@ -126,6 +137,11 @@ class Steganography{
          */
         cv::Vec3b EmbedInRed(cv::Vec3b pixel, size_t index);
 
+        /**
+         * @brief Extract secret information bit from the LSB of red.
+         * 
+         * @param pixel 
+         */
         void ExtractFromRed(cv::Vec3b pixel);
         
         /**
@@ -181,7 +197,8 @@ class Steganography{
          * 
          * @param msg 
          * @param key 
-         * @param img 
+         * @param img_path 
+         * @param new_stego_image_path 
          */
         Steganography(std::string msg, std::string key, std::string img_path, std::string new_stego_image_path);
 
@@ -189,7 +206,7 @@ class Steganography{
          * @brief Construct a new Steganography object. This constructor is used for extraction purposes.
          * 
          * @param key 
-         * @param img 
+         * @param img_path 
          */
         Steganography(std::string key, std::string img_path);
 
