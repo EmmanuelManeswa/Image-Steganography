@@ -4,7 +4,7 @@
  * @brief This header file contains the Steganography class definition.
  *        Class implementation path: "../src/steganography.cpp".
  * @version 0.1
- * @date 2020-04-07
+ * @date 2020-04-09
  * 
  * @copyright Copyright (c) 2020
  * 
@@ -22,7 +22,7 @@
  */
 class Steganography{
 
-        std::string secret_info_, key_, key_hash_, img_path_;
+        std::string secret_info_, key_, key_hash_, img_path_, new_stego_img_path_;
         cv::Mat img_;
 
         /**
@@ -36,7 +36,7 @@ class Steganography{
          * 
          * @param stego_image_path 
          */
-        void SaveStegoImage(std::string stego_img_path);
+        void SaveStegoImage();
 
         /**
          * @brief Calculates the number of secret information bits and returns it as bits.
@@ -54,13 +54,21 @@ class Steganography{
         bool IfStorable(std::string number_of_bits_hidden)const;
 
         /**
+         * @brief Takes bit of type char and returns the equivalent bit of type int.
+         * 
+         * @param bit 
+         * @return int 
+         */
+        int BToI(char bit);
+
+        /**
          * @brief Checks if value is an even number.
          * 
          * @param color_value 
          * @return true 
          * @return false 
          */
-        bool IsEven(unsigned char color_shade)const;
+        bool IsEven(int color_shade)const;
 
         /**
          * @brief Checks if value is an odd number.
@@ -69,7 +77,7 @@ class Steganography{
          * @return true 
          * @return false 
          */
-        bool IsOdd(unsigned char color_shade)const;
+        bool IsOdd(int color_shade)const;
 
         /**
          * @brief Exclusive Or of of two bits of different data types.
@@ -175,7 +183,7 @@ class Steganography{
          * @param key 
          * @param img 
          */
-        Steganography(std::string msg, std::string key, std::string img_path);
+        Steganography(std::string msg, std::string key, std::string img_path, std::string new_stego_image_path);
 
         /**
          * @brief Construct a new Steganography object. This constructor is used for extraction purposes.
