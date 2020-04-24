@@ -58,6 +58,9 @@
 │   │   ├── proj1_poster.pdf
 │   │   └── proj1_poster.pptx
 │   └── project 2
+│       ├── Project Poster (154409 - Emmanuel Maneswa).pptx
+│       ├── Project Presentation (154409 - Emmanuel Maneswa).pptx
+│       └── Project Report (154409 - Emmanuel Maneswa).docx
 ├── include
 │   ├── convert.hpp
 │   └── steganography.hpp
@@ -83,7 +86,8 @@
 │   ├── 4. 2020-04-07_16:56.jpg
 │   ├── 5. 2020-04-08_12:32.jpg
 │   ├── 6. 2020-04-08_12:35.jpg
-│   └── 7. 2020-04-09_08:46.jpg
+│   ├── 7. 2020-04-09_08:46.jpg
+│   └── 8. 2020-04-25_02:30.jpg
 ├── src
 │   ├── convert.cpp
 │   ├── main.cpp
