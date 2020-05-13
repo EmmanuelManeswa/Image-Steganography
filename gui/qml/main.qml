@@ -1,6 +1,5 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
-//import QtQuick.Layouts 1.14
 
 ApplicationWindow{
     id: window
@@ -12,12 +11,16 @@ ApplicationWindow{
     menuBar: MenuBar{
         Menu{
             title: qsTr("Tool")
-            Action{ text: qsTr("Embed") }
-            Action{ text: qsTr("Extract") }
+            Action{
+                text: qsTr("Embed")
+            }
+            Action{
+                text: qsTr("Extract")
+            }
             MenuSeparator{ }
             Action{
                 text: qsTr("Exit")
-                onTriggered: Qt.quit()
+                onTriggered: Qt.quit();
             }
         }
         Menu{
@@ -28,7 +31,9 @@ ApplicationWindow{
         }
         Menu{
             title: qsTr("About")
-            Action{ text: qsTr("About") }
+            Action{
+                text: qsTr("About")
+            }
         }
     }
 
