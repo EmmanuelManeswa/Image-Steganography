@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import QtQuick.Dialogs 1.3
 
 ApplicationWindow{
     id: window
@@ -27,14 +28,38 @@ ApplicationWindow{
             title: qsTr("Help")
             Action{
                 text: qsTr("Tutorial")
+                onTriggered: {
+                    tutorialDialog.open()
+                }
             }
         }
         Menu{
             title: qsTr("About")
             Action{
                 text: qsTr("About")
+                onTriggered: {
+                    aboutDialog.open()
+                }
             }
         }
+    }
+
+    //  Tutorial message box
+    MessageDialog{
+        id: tutorialDialog
+        title: qsTr("Tutorial")
+        icon: StandardIcon.Question
+        text: qsTr("Tutorial info will be here!")
+        Component.onCompleted: visible = false
+    }
+
+    //  About message box
+    MessageDialog{
+        id: aboutDialog
+        title: qsTr("About")
+        icon: StandardIcon.Information
+        text: qsTr("Emmanuel Maneswa - 154409\nSoftware Engineering\nemmanuelmaneswa@gmail.com\nGraduation Project: Image Steganography\nEuropean Univerity of Lefke")
+        Component.onCompleted: visible = false
     }
 
     Label{
