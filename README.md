@@ -15,6 +15,8 @@
 ## __Languages__ ##
 
 - C++
+- QML
+- JavaScript
 
 ## __Softwares/Tools Used__ ##
 
@@ -23,6 +25,7 @@
 - Bitbucket: [https://bitbucket.org/](https://bitbucket.org/)
 - Github: [https://github.com/](https://github.com/)
 - CMake: [https://cmake.org/](https://cmake.org/)
+- Qt: [https://www.qt.io/](https://www.qt.io/)
 - OpenCV: [https://opencv.org/](https://opencv.org/)
 - Doxygen: [http://www.doxygen.nl/](http://www.doxygen.nl/)
 - Trello: [https://trello.com/](https://trello.com/)
@@ -61,6 +64,15 @@
 │       ├── Project Poster (154409 - Emmanuel Maneswa).pptx
 │       ├── Project Presentation (154409 - Emmanuel Maneswa).pptx
 │       └── Project Report (154409 - Emmanuel Maneswa).docx
+├── gui
+│   ├── js
+│   │   ├── embed.js
+│   │   └── extract.js
+│   ├── pages
+│   │   ├── embed.qml
+│   │   ├── extract.qml
+│   │   └── main.qml
+│   └── qml.qrc
 ├── include
 │   ├── convert.hpp
 │   └── steganography.hpp
@@ -93,14 +105,13 @@
 │   ├── main.cpp
 │   └── steganography.cpp
 ├── tests
-├── third-party
-│   ├── README.md
-│   ├── README.pdf
-│   └── sha256
-│       ├── include
-│       │   └── sha256.hpp
-│       ├── LICENCE.txt
-│       └── src
-│           └── sha256.cpp
-└── web
+└── third-party
+    ├── README.md
+    ├── README.pdf
+    └── sha256
+        ├── include
+        │   └── sha256.hpp
+        ├── LICENCE.txt
+        └── src
+            └── sha256.cpp
 ```
