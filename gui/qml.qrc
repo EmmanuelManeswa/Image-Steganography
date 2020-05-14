@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>pages/main.qml</file>
+        <file>pages/embed.qml</file>
+        <file>pages/extract.qml</file>
+        <file>js/embed.js</file>
+        <file>js/extract.js</file>
     </qresource>
 </RCC>

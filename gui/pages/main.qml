@@ -1,6 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Dialogs 1.3
+import "../js/embed.js" as EmbedScript
+import "../js/extract.js" as ExtractScript
 
 ApplicationWindow{
     id: window
@@ -14,32 +16,30 @@ ApplicationWindow{
             title: qsTr("Tool")
             Action{
                 text: qsTr("Embed")
+                onTriggered: EmbedScript.createEmbedObject()
             }
             Action{
                 text: qsTr("Extract")
+                onTriggered: ExtractScript.createExtractObject()
             }
             MenuSeparator{ }
             Action{
                 text: qsTr("Exit")
-                onTriggered: Qt.quit();
+                onTriggered: Qt.quit()
             }
         }
         Menu{
             title: qsTr("Help")
             Action{
                 text: qsTr("Tutorial")
-                onTriggered: {
-                    tutorialDialog.open()
-                }
+                onTriggered: tutorialDialog.open()
             }
         }
         Menu{
             title: qsTr("About")
             Action{
                 text: qsTr("About")
-                onTriggered: {
-                    aboutDialog.open()
-                }
+                onTriggered: aboutDialog.open()
             }
         }
     }
