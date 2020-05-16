@@ -18,7 +18,7 @@ include_directories(third_party/sha256/include)
 
 file(GLOB SOURCES "src/*.cpp" "third-party/sha256/src/*.cpp")
 
-add_executable(execute ${SOURCES} ${qml_QRC})
+add_executable(ImSteg ${SOURCES} ${qml_QRC})
 
-target_link_libraries(execute ${OpenCV_LIBS})
-target_link_libraries(execute Qt5::Qml Qt5::Quick)
+target_link_libraries(ImSteg ${OpenCV_LIBS})
+target_link_libraries(ImSteg Qt5::Qml Qt5::Quick)
