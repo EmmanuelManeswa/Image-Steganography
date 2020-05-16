@@ -115,7 +115,7 @@ ApplicationWindow{
             font.pointSize: 10
             color: "#A1B4BA"
             placeholderText: qsTr("Enter Password......")
-            echoMode:TextInput.PasswordEchoOnEdit
+            echoMode: TextInput.PasswordEchoOnEdit
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
             background: Rectangle{
