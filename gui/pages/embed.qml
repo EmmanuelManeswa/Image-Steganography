@@ -38,6 +38,14 @@ ApplicationWindow{
         }
     }
 
+    MessageDialog{
+        id: missingInfoDialog
+        title: qsTr("Error")
+        icon: StandardIcon.Critical
+        text: qsTr("Enter and select all the Information!")
+        Component.onCompleted: visible = false
+    }
+
     RowLayout {
         id: rowLayout
         x: 5
@@ -165,6 +173,8 @@ ApplicationWindow{
                 Layout.fillWidth: true
                 font.pointSize: 10
                 color: "#A1B4BA"
+                selectByKeyboard: true
+                selectByMouse: true
                 placeholderText: qsTr("Enter Secret Information.....")
 
                 background: Rectangle{
@@ -243,7 +253,7 @@ ApplicationWindow{
         }
 
         TextField {
-            id: textField1
+            id: stegoName
             x: 248
             y: 128
             width: 272
@@ -275,6 +285,41 @@ ApplicationWindow{
             height: 32
             text: qsTr("Embed Information")
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+            onClicked: {
+                validateEmbed();
+
+                function validateEmbed() {
+                    var missing = false;
+                    if(image_selected()) missing = true;
+                    else if(password_entered()) missing = true;
+                    else if(secret_info_entered()) missing = true;
+                    else if(save_location_selected()) missing = true;
+                    else if(new_stego_name_entered()) missing = true;
+                    else;
+                    missing ? missingInfoDialog.open() : console.log("All here.....");
+                }
+
+                function image_selected(){
+                    return coverImageSelector.fileUrl == "" ? true : false;
+                }
+
+                function password_entered(){
+                    return password.text == "" ? true : false;
+                }
+
+                function secret_info_entered(){
+                    return secretInfoText.text == "" ? true : false; 
+                }
+
+                function save_location_selected(){
+                    return stegoSaveLocation.fileUrl == "" ? true : false;
+                }
+
+                function new_stego_name_entered(){
+                    return stegoName.text == "" ? true : false;
+                }
+            }
 
             contentItem: Text{
                 text: embedButton.text
