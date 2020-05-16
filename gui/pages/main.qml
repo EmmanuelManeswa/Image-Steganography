@@ -7,8 +7,13 @@ import "../js/extract.js" as ExtractScript
 ApplicationWindow{
     id: window
     visible: true
-    width: 500
-    height: 500
+    width: 650
+    height: 650
+    maximumWidth: width
+    maximumHeight: height
+    minimumWidth: width
+    minimumHeight: height
+    color: "#252A35"
     title: qsTr("ImSteg")
 
     menuBar: MenuBar{
@@ -64,13 +69,17 @@ ApplicationWindow{
 
     Label{
         id: welcome_content1
+        color: "#A1B4BA"
         text: qsTr("Welcome to ImSteg\n\n\n")
+        font.pixelSize: 14
         anchors.centerIn: parent
     }
 
     Label{
         id: welcome_content2
+        color: "#A1B4BA"
         text: qsTr("Image Steganography Software")
+        font.pixelSize: 14
         anchors.centerIn: parent
     }
 
