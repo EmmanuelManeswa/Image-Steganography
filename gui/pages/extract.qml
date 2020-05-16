@@ -26,6 +26,14 @@ ApplicationWindow{
         }
     }
 
+    MessageDialog{
+        id: missingInfoDialog
+        title: qsTr("Error")
+        icon: StandardIcon.Critical
+        text: qsTr("Enter and select all the Information!")
+        Component.onCompleted: visible = false
+    }
+
     RowLayout {
         id: rowLayout
         x: 5
@@ -181,6 +189,26 @@ ApplicationWindow{
             height: 32
             text: qsTr("Extract Information")
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+            onClicked: {
+                validateExtract();
+
+                function validateExtract() {
+                    var missing = false;
+                    if(image_selected()) missing = true;
+                    else if(password_entered()) missing = true;
+                    else;
+                    missing ? missingInfoDialog.open() : console.log("All here.....");
+                }
+
+                function image_selected(){
+                    return stegoImageSelector.fileUrl == "" ? true : false;
+                }
+
+                function password_entered(){
+                    return password.text == "" ? true : false;
+                }
+            }
 
             contentItem: Text{
                 text: extractButton.text
