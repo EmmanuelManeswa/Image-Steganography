@@ -5,6 +5,7 @@
 #include "../include/steganography.hpp"
 #include "../include/convert.hpp"
 #include "../third-party/sha256/include/sha256.hpp"
+#include "../include/middlemen.hpp"
 
 int main(int argc, char *argv[]){
 
@@ -52,6 +53,9 @@ int main(int argc, char *argv[]){
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     
     QGuiApplication app(argc, argv);
+
+    qmlRegisterType<Middlemen>("com.ImSteg.Middlemen", 1, 0, "Middlemen");
+
     QQmlApplicationEngine engine;
 
     app.setOrganizationName("European University of Lefke");
