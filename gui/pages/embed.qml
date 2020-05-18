@@ -2,6 +2,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Dialogs 1.3
 import QtQuick.Layouts 1.14
+import com.ImSteg.Middlemen 1.0
 
 ApplicationWindow{
     id: embedWindow
@@ -14,6 +15,10 @@ ApplicationWindow{
     color: "#252A35"
     visible: true
     title: qsTr("Embed")
+
+    Middlemen{
+        id: middlemen
+    }
 
     FileDialog{
         id: coverImageSelector
@@ -287,8 +292,6 @@ ApplicationWindow{
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
             onClicked: {
-                validateEmbed();
-
                 function validateEmbed() {
                     var missing = false;
                     if(image_selected()) missing = true;
@@ -297,7 +300,7 @@ ApplicationWindow{
                     else if(save_location_selected()) missing = true;
                     else if(new_stego_name_entered()) missing = true;
                     else;
-                    missing ? missingInfoDialog.open() : console.log("All here.....");
+                    missing ? missingInfoDialog.open() : to_cpp();
                 }
 
                 function image_selected(){
@@ -319,6 +322,18 @@ ApplicationWindow{
                 function new_stego_name_entered(){
                     return stegoName.text == "" ? true : false;
                 }
+
+                function to_cpp(){
+                    var img_path = coverImageSelector.fileUrl.toString();
+                    img_path = img_path.replace(/^(file:\/{2})/,"");
+                    var save_path = stegoSaveLocation.fileUrl.toString();
+                    save_path = save_path.replace(/^(file:\/{2})/,"");
+                    save_path = save_path + "/" + stegoName.text;
+                    console.log(middlemen.Embed(secretInfoText.text, password.text, qsTr(img_path), qsTr(save_path)));
+                    /////
+                }
+
+                validateEmbed();
             }
 
             contentItem: Text{

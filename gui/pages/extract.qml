@@ -2,6 +2,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Dialogs 1.3
 import QtQuick.Layouts 1.14
+import com.ImSteg.Middlemen 1.0
 
 ApplicationWindow{
     id: extractWindow
@@ -14,6 +15,10 @@ ApplicationWindow{
     color: "#252A35"
     visible: true
     title: qsTr("Extract")
+
+    Middlemen{
+        id: middlemen
+    }
 
     FileDialog{
         id: stegoImageSelector
@@ -191,14 +196,12 @@ ApplicationWindow{
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
             onClicked: {
-                validateExtract();
-
                 function validateExtract() {
                     var missing = false;
                     if(image_selected()) missing = true;
                     else if(password_entered()) missing = true;
                     else;
-                    missing ? missingInfoDialog.open() : console.log("All here.....");
+                    missing ? missingInfoDialog.open() : to_cpp();
                 }
 
                 function image_selected(){
@@ -208,6 +211,14 @@ ApplicationWindow{
                 function password_entered(){
                     return password.text == "" ? true : false;
                 }
+
+                function to_cpp(){
+                    var img_path = stegoImageSelector.fileUrl.toString();
+                    img_path = img_path.replace(/^(file:\/{2})/,"");
+                    secretInfoText.text = middlemen.Extract(password.text, qsTr(img_path));
+                }
+
+                validateExtract();
             }
 
             contentItem: Text{
