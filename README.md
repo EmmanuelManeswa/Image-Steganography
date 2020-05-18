@@ -75,6 +75,7 @@
 │   └── qml.qrc
 ├── include
 │   ├── convert.hpp
+│   ├── middlemen.hpp
 │   └── steganography.hpp
 ├── README.md
 ├── README.pdf
@@ -103,6 +104,7 @@
 ├── src
 │   ├── convert.cpp
 │   ├── main.cpp
+│   ├── middlemen.cpp
 │   └── steganography.cpp
 ├── tests
 └── third-party
