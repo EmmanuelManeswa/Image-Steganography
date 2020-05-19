@@ -53,7 +53,6 @@
 ```.
 .
 ├── build
-├── CMakeLists.txt
 ├── docs
 │   ├── project 1
 │   │   ├── proj1_documentation.docx
@@ -73,6 +72,7 @@
 │   │   ├── extract.qml
 │   │   └── main.qml
 │   └── qml.qrc
+├── ImSteg.pro
 ├── include
 │   ├── convert.hpp
 │   ├── middlemen.hpp
@@ -106,7 +106,6 @@
 │   ├── main.cpp
 │   ├── middlemen.cpp
 │   └── steganography.cpp
-├── tests
 └── third-party
     ├── README.md
     ├── README.pdf
