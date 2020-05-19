@@ -2,6 +2,8 @@
 #include <string>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlEngine>
+#include <QQmlContext>
 #include "../include/steganography.hpp"
 #include "../include/convert.hpp"
 #include "../third-party/sha256/include/sha256.hpp"
@@ -54,7 +56,8 @@ int main(int argc, char *argv[]){
     
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<Middlemen>("com.ImSteg.Middlemen", 1, 0, "Middlemen");
+    //qmlRegisterType<Middlemen>("com.ImSteg.Middlemen", 1, 0, "Middlemen");
+    QScopedPointer<Middlemen> middlemen(new Middlemen);
 
     QQmlApplicationEngine engine;
 
@@ -69,6 +72,8 @@ int main(int argc, char *argv[]){
     }, Qt::QueuedConnection);
 
     engine.load(url);
+
+    engine.rootContext()->setContextProperty("middlemen", middlemen.data());
 
     return app.exec();
     //return 0;
