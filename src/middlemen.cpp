@@ -1,3 +1,15 @@
+/**
+ * @file middlemen.cpp
+ * @author Emmanuel Maneswa (emmanuelmaneswa@gmail.com)
+ * @brief This source file contains the class member functions implementation for Middlemen class.
+ *        class definition path "../include/middlemen.hpp".
+ * @version 0.1
+ * @date 2020-05-19
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
+
 #include "../include/middlemen.hpp"
 #include "../include/steganography.hpp"
 
