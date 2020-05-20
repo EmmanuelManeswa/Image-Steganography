@@ -5,7 +5,7 @@
  *        Class definition implementation in "../include/steganography.hpp"
  *        header file.
  * @version 0.1
- * @date 2020-04-09
+ * @date 2020-05-21
  * 
  * @copyright Copyright (c) 2020
  * 
@@ -25,8 +25,6 @@ Steganography::Steganography(std::string key, std::string image_path): key_(key)
 
 void Steganography::LoadImage(){
     img_ = cv::imread(img_path_, cv::IMREAD_COLOR); // [B, G, R]
-    if(img_.empty())
-        exit(EXIT_FAILURE); // failed to open image.
 }
 
 void Steganography::SaveStegoImage(){
@@ -160,7 +158,6 @@ size_t Steganography::ExtractLength(){
                 return secret_length;
             }
         }
-    exit(EXIT_FAILURE);
 }
 
 void Steganography::EmbedKeyHash(){
@@ -279,6 +276,8 @@ void Steganography::ExtractSecretInfo(size_t secret_info_length){
 
 std::string Steganography::Embedding(){
     LoadImage();
+    if(img_.empty())
+        return "";
 
     /**
      * @brief Secret info encryption to be left for last, so the following two line just converts secret infomation to binary form.
@@ -301,7 +300,7 @@ std::string Steganography::Embedding(){
     std::string number_of_bits_hidden = HiddenBits(secret_info_.length());
 
     if(!IfStorable(number_of_bits_hidden))
-        exit(EXIT_FAILURE);  // image is small.
+        return "";  // image is small.
     
     EmbedLength(number_of_bits_hidden);
     EmbedKeyHash();
@@ -314,6 +313,8 @@ std::string Steganography::Embedding(){
 
 std::string Steganography::Extraction(){
     LoadImage();
+    if(img_.empty())
+        return "";
 
     /**
      * @brief Key hashing using sha256 and then converting to binary and back to hexadecimal.
@@ -328,12 +329,12 @@ std::string Steganography::Extraction(){
     key_ = HexadecimalToBinary( TextToHexadecimal(key_));
 
     if(img_.rows < 10)
-        exit(EXIT_FAILURE); // image is small.
+        return ""; // image is small.
 
     size_t secret_info_length = ExtractLength();
 
     if(key_hash_ != ExtractKeyHash())
-        exit(EXIT_FAILURE); // wrong key/password.
+        return ""; // wrong key/password.
 
     ExtractSecretInfo(secret_info_length);
     secret_info_ = HexadecimalToText( BinaryToHexadecimal( secret_info_));
