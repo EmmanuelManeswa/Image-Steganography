@@ -22,7 +22,9 @@ ApplicationWindow{
         nameFilters: ["Image files (*.jpeg *.jpg *.jpe *.png *.tiff *.tif *.webp *.bmp *.exr *.hdr)"]
         sidebarVisible: true
         onAccepted: {
-            element1.text = qsTr("Image Chosen: " + stegoImageSelector.fileUrl)
+            var img_path = stegoImageSelector.fileUrl.toString();
+            img_path = img_path.replace(/^(file:\/{2})/,"");
+            element1.text = qsTr("Image Chosen: " + qsTr(img_path));
         }
     }
 
