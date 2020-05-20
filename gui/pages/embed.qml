@@ -22,7 +22,9 @@ ApplicationWindow{
         nameFilters: ["Image files (*.jpeg *.jpg *.jpe *.png *.tiff *.tif *.webp *.bmp *.exr *.hdr)"]
         sidebarVisible: true
         onAccepted: {
-            element1.text = qsTr("Image Chosen: " + coverImageSelector.fileUrl)
+            var img_path = coverImageSelector.fileUrl.toString();
+            img_path = img_path.replace(/^(file:\/{2})/,"");
+            element1.text = qsTr("Image Chosen: " + qsTr(img_path));
         }
     }
 
@@ -34,7 +36,9 @@ ApplicationWindow{
         sidebarVisible: true
         selectExisting: false
         onAccepted: {
-            element5.text = qsTr("Folder Chosen: " + stegoSaveLocation.fileUrl)
+            var img_path = stegoSaveLocation.fileUrl.toString();
+            img_path = img_path.replace(/^(file:\/{2})/,"");
+            element5.text = qsTr("Folder Chosen: " + qsTr(img_path));
         }
     }
 
@@ -43,6 +47,21 @@ ApplicationWindow{
         title: qsTr("Error")
         icon: StandardIcon.Critical
         text: qsTr("Enter and select all the Information!")
+        Component.onCompleted: visible = false
+    }
+
+    MessageDialog{
+        id: embedSuccessDialog
+        title: qsTr("Done")
+        text: qsTr("Embedded Successfully!")
+        Component.onCompleted: visible = false
+    }
+
+    MessageDialog{
+        id: embedFailedDialog
+        title: qsTr("Error")
+        icon: StandardIcon.Critical
+        text: qsTr("Failed to Embed!\nImage is small/not supported.")
         Component.onCompleted: visible = false
     }
 
@@ -324,8 +343,10 @@ ApplicationWindow{
                     var save_path = stegoSaveLocation.fileUrl.toString();
                     save_path = save_path.replace(/^(file:\/{2})/,"");
                     save_path = save_path + "/" + stegoName.text;
-                    console.log(middlemen.Embed(secretInfoText.text, password.text, qsTr(img_path), qsTr(save_path)));
-                    /////
+                    if(middlemen.Embed(secretInfoText.text, password.text, qsTr(img_path), qsTr(save_path)) == "")
+                        embedFailedDialog.open();
+                    else
+                        embedSuccessDialog.open();
                 }
 
                 validateEmbed();
