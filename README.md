@@ -54,18 +54,6 @@
 ```.
 .
 ├── build
-│   ├── convert.o
-│   ├── ImSteg
-│   ├── main.o
-│   ├── Makefile
-│   ├── middlemen.o
-│   ├── moc_middlemen.cpp
-│   ├── moc_middlemen.o
-│   ├── moc_predefs.h
-│   ├── qrc_qml.cpp
-│   ├── qrc_qml.o
-│   ├── sha256.o
-│   └── steganography.o
 ├── docs
 │   ├── project 1
 │   │   ├── proj1_documentation.docx
