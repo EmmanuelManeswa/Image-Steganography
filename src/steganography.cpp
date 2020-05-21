@@ -17,6 +17,7 @@
 #include "../include/steganography.hpp"
 #include "../include/convert.hpp"
 #include "../third-party/sha256/include/sha256.hpp"
+#include "../third-party/easy-encryption/include/encrypt.h"
 
 Steganography::Steganography(std::string msg, std::string key, std::string image_path, std::string new_stego_image_path):
                             secret_info_(msg), key_(key), img_path_(image_path), new_stego_img_path_(new_stego_image_path+".png"){ }
@@ -280,22 +281,28 @@ std::string Steganography::Embedding(){
         return "";
 
     /**
-     * @brief Secret info encryption to be left for last, so the following two line just converts secret infomation to binary form.
+     * @brief Encrypts secret information using third-party library.
      * 
      */
-    secret_info_ = HexadecimalToBinary( TextToHexadecimal(secret_info_));
+    secret_info_ = encrypt(secret_info_, key_);
+
+    /**
+     * @brief Line converts encrypted secret infomation to binary form.
+     * 
+     */
+    secret_info_ = HexadecimalToBinary(TextToHexadecimal(secret_info_));
 
     /**
      * @brief Key hashing using sha256 and then convert to binary form.
      * 
      */
-    key_hash_ = HexadecimalToBinary( sha256(key_));
+    key_hash_ = HexadecimalToBinary(sha256(key_));
 
     /**
      * @brief Change original key to bits.
      * 
      */
-    key_ = HexadecimalToBinary( TextToHexadecimal(key_));
+    key_ = HexadecimalToBinary(TextToHexadecimal(key_));
 
     std::string number_of_bits_hidden = HiddenBits(secret_info_.length());
 
@@ -316,17 +323,19 @@ std::string Steganography::Extraction(){
     if(img_.empty())
         return "";
 
+    std::string temp_key = key_;
+
     /**
      * @brief Key hashing using sha256 and then converting to binary and back to hexadecimal.
      * 
      */
-    key_hash_ = BinaryToHexadecimal( HexadecimalToBinary( sha256( key_)));
+    key_hash_ = BinaryToHexadecimal(HexadecimalToBinary( sha256( key_)));
 
     /**
      * @brief change original key to bits.
      * 
      */
-    key_ = HexadecimalToBinary( TextToHexadecimal(key_));
+    key_ = HexadecimalToBinary(TextToHexadecimal(key_));
 
     if(img_.rows < 10)
         return ""; // image is small.
@@ -337,7 +346,13 @@ std::string Steganography::Extraction(){
         return ""; // wrong key/password.
 
     ExtractSecretInfo(secret_info_length);
-    secret_info_ = HexadecimalToText( BinaryToHexadecimal( secret_info_));
+    secret_info_ = HexadecimalToText(BinaryToHexadecimal( secret_info_));
+
+    /**
+     * @brief Decrypt secret information using third-party library.
+     * 
+     */
+    secret_info_ = decrypt(secret_info_, temp_key);
 
     return secret_info_;
 }
