@@ -47,6 +47,7 @@
 ## __Third-Party Libraries__ ##
 
 - Sha256: [http://www.zedwood.com/article/cpp-sha256-function](http://www.zedwood.com/article/cpp-sha256-function)
+- Easy Encryption: [https://github.com/philipperemy/easy-encryption](https://github.com/philipperemy/easy-encryption)
 
 ## __Directory Structure__ ##
 
@@ -93,6 +94,7 @@
 │   ├── stego-image1.png
 │   └── tiff-image.tiff
 ├── scrum-board
+│   ├── 10. 2020-05-21_22:30.jpg
 │   ├── 1. 2020-03-11_20:23.jpeg
 │   ├── 2. 2020-03-30_07:31.jpg
 │   ├── 3. 2020-04-07_16:53.jpg
@@ -108,6 +110,12 @@
 │   ├── middlemen.cpp
 │   └── steganography.cpp
 └── third-party
+    ├── easy-encryption
+    │   ├── include
+    │   │   ├── b64.h
+    │   │   ├── encrypt.h
+    │   │   └── vigenere.h
+    │   └── LICENSE
     ├── README.md
     ├── README.pdf
     └── sha256
