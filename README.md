@@ -54,6 +54,18 @@
 ```.
 .
 ├── build
+│   ├── convert.o
+│   ├── ImSteg
+│   ├── main.o
+│   ├── Makefile
+│   ├── middlemen.o
+│   ├── moc_middlemen.cpp
+│   ├── moc_middlemen.o
+│   ├── moc_predefs.h
+│   ├── qrc_qml.cpp
+│   ├── qrc_qml.o
+│   ├── sha256.o
+│   └── steganography.o
 ├── docs
 │   ├── project 1
 │   │   ├── proj1_documentation.docx
@@ -92,10 +104,17 @@
 │   ├── stego-image15.png
 │   ├── stego-image16.png
 │   ├── stego-image1.png
+│   ├── stego-images
+│   │   ├── stego1.png
+│   │   └── stego2.png
 │   └── tiff-image.tiff
 ├── scrum-board
 │   ├── 10. 2020-05-21_22:30.jpg
+│   ├── 11. 2020-05-21_23:28.jpg
 │   ├── 1. 2020-03-11_20:23.jpeg
+│   ├── 12. 2020-05-21_23:28.jpg
+│   ├── 13. 2020-05-22_00:02.jpg
+│   ├── 14. 2020-05-22_00:02.jpg
 │   ├── 2. 2020-03-30_07:31.jpg
 │   ├── 3. 2020-04-07_16:53.jpg
 │   ├── 4. 2020-04-07_16:56.jpg
