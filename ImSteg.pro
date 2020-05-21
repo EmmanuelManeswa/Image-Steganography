@@ -15,7 +15,10 @@ RESOURCES += gui/qml.qrc
 HEADERS +=  include/convert.hpp \
             include/steganography.hpp \
             include/middlemen.hpp \
-            third-party/sha256/include/sha256.hpp
+            third-party/sha256/include/sha256.hpp \
+            third-party/easy-encryption/include/encrypt.h \
+            third-party/easy-encryption/include/vigenere.h \
+            third-party/easy-encryption/include/b64.h
 
 unix: CONFIG += link_pkgconfig
 unix: PKGCONFIG += opencv4
